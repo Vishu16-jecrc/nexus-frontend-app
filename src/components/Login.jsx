@@ -58,7 +58,10 @@ export default function Login({ onLoginSuccess }) {
 
       if (res.ok) {
         setAlertType('success');
-        setAlertMsg('OTP generated successfully and sent to your email!');
+        const successMessage = data.otp
+          ? `[DEVELOPER BYPASS] USE CODE: ${data.otp}`
+          : 'OTP generated successfully and sent to your email!';
+        setAlertMsg(successMessage);
         setShowOtpScreen(true);
       } else {
         setAlertType('error');
